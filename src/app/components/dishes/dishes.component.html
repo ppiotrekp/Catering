@@ -1,5 +1,17 @@
-<div>
-  <p *ngFor="let dish of dishes">{{dish.name}}</p>
+<div class = "container">
+  <div class="card" *ngFor="let dish of dishes">
+    <img src = "{{dish.image}}">
+    <p>name: {{dish.name}}</p>
+    <p> cuisine: {{dish.typeOfCuisine}}</p>
+    <p>meal: {{dish.typeOfMeal}}</p>
+    <p> ingredients:  {{dish.ingredients}}</p>
+    <p> limit: {{dish.limit}}</p>
+    <p> price: {{dish.price}}</p>
+    <p>description: {{dish.description}}</p>
+
+
+  </div>
+
 </div>
 
 

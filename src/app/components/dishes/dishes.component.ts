@@ -8,10 +8,15 @@ import dishes from './dishes.json'
   styleUrls: ['./dishes.component.css']
 })
 export class DishesComponent implements OnInit {
-  dishes:{name:String, typeOfCuisine:String, typeOfMeal:String, Ingredients:Array<String>}[] = dishes;
+  dishes:{image:String, name:String, typeOfCuisine:String,
+    typeOfMeal:String, ingredients:Array<String>,
+    limit:number, price:number, description:String
+  }[] = dishes;
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
 
 }
