@@ -14,3 +14,17 @@
   text-align: center;
   /*background-image: url("./images/pizza.jpg");*/
 }
+
+.icons {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 30% 0 30%;
+}
+
+p {
+  margin: 0px;
+}
+
+h2 {
+  text-align: center;
+}
