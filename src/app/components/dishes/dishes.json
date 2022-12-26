@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Pizza",
+    "typeOfCuisine": "Italian",
+    "typeOfMeal": "Dinner",
+    "Ingredients": [
+      {
+        "name": "sauce"
+      },
+      {
+        "name": "cheese"
+      }
+    ]
+  },
+  {
+    "name": "Pizza",
+    "typeOfCuisine": "Italian",
+    "typeOfMeal": "Dinner",
+    "Ingredients": [
+      {
+        "name": "sauce"
+      },
+      {
+        "name": "cheese"
+      }
+    ]
+  }
+]
+
