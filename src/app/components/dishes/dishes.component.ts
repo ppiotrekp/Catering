@@ -60,6 +60,10 @@ export class DishesComponent implements OnInit {
     row.remove();
   }
 
+  addReviewsComponent() {
+
+  }
+
 
 
 

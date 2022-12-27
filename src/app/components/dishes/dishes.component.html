@@ -40,6 +40,12 @@
 <!--        </button>-->
       </td>
       <td class="unavailable" [ngStyle]="{display: dish.limit === 0 ? 'flex' : 'none'}">UNAVAILABLE</td>
+      <td>
+        <button (click)="addReviewsComponent()">
+          Reviews
+        </button>
+
+      </td>
       <td class="remove-btn"  (click)="removeById(dish.id)">
         <button>
           <i class="fa fa-trash"></i>
@@ -47,6 +53,8 @@
       </td>
     </tr>
   </table>
+
+
 
 </div>
 <div class="amount" [ngClass]="{changeBackground: amount > 10}">
