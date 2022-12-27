@@ -21,7 +21,7 @@
       <th>Price</th>
       <th>Description</th>
     </tr>
-    <tr *ngFor="let dish of dishes" [ngClass]="{changeBackgroundOnLowAmount: dish.limit < 4 && dish.limit > 0, changeBorderOnTheLeastExpensive: dish.price === minValue(), changeBorderOnTheMostExpensive: dish.price === maxValue()}">
+    <tr class="dish-row" id = "{{'dish' + dish.id}}" *ngFor="let dish of dishes" [ngClass]="{changeBackgroundOnLowAmount: dish.limit < 4 && dish.limit > 0, changeBorderOnTheLeastExpensive: dish.price === minValue(), changeBorderOnTheMostExpensive: dish.price === maxValue()}">
     <td><img src = "{{dish.image}}"></td>
     <td >{{dish.name | uppercase}}</td>
     <td> {{dish.typeOfCuisine | uppercase}}</td>
@@ -31,31 +31,23 @@
     <td>{{dish.price}}</td>
     <td>{{dish.description}}</td>
       <td class="icons" id = {{dish.id}}{{dish.id}} [ngStyle]="{display: dish.limit === 0 ? 'none' : 'flex'}">
+<!--        <button>-->
           <i class="fas fa-plus-square"  (click)="increaseAmountOfDishes(dish.id)"></i>
+<!--        </button>-->
           <p id="{{dish.id}}">0</p>
+<!--        <button>-->
           <i class="fas fa-minus-square" (click)="decreaseAmountOfDishes(dish.id)"></i>
+<!--        </button>-->
       </td>
-
-      <td [ngStyle]="{display: dish.limit === 0 ? 'flex' : 'none'}">UNAVAILABLE</td>
+      <td class="unavailable" [ngStyle]="{display: dish.limit === 0 ? 'flex' : 'none'}">UNAVAILABLE</td>
+      <td class="remove-btn"  (click)="removeById(dish.id)">
+        <button>
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
     </tr>
   </table>
 
-<!--  <div class="card" *ngFor="let dish of dishes" >-->
-<!--    <img src = "{{dish.image}}">-->
-<!--    <p>name: {{dish.name | uppercase}} </p>-->
-<!--    <h2 [ngStyle]="{display: dish.limit === 0 ? 'flex' : 'none'}">UNAVAILABLE</h2>-->
-<!--    <p> cuisine: {{dish.typeOfCuisine | uppercase}}</p>-->
-<!--    <p>meal: {{dish.typeOfMeal}}</p>-->
-<!--    <p> ingredients:  {{dish.ingredients}}</p>-->
-<!--    <p> limit: {{dish.limit}}</p>-->
-<!--    <p> price: {{dish.price}} $</p>-->
-<!--    <p>description: {{dish.description}}</p>-->
-<!--    <div class="icons" id = {{dish.id}}{{dish.id}} [ngStyle]="{display: dish.limit === 0 ? 'none' : 'flex'}">-->
-<!--      <i class="fas fa-plus-square"  (click)="increaseAmountOfDishes(dish.id)"></i>-->
-<!--      <p id="{{dish.id}}">0</p>-->
-<!--      <i class="fas fa-minus-square" (click)="decreaseAmountOfDishes(dish.id)"></i>-->
-<!--    </div>-->
-<!--  </div>-->
 </div>
 <div class="amount" [ngClass]="{changeBackground: amount > 10}">
   <p>0</p>

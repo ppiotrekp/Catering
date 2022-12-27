@@ -48,10 +48,16 @@ export class DishesComponent implements OnInit {
 
   maxValue() {
     for (let dish of this.dishes.values()) {
-      this.arr.push(dish.price)
+      this.arr.push(dish.price);
     }
     // @ts-ignore
     return Math.max(...this.arr);
+  }
+
+  removeById(id: number) {
+    var row = document.querySelector("#dish" + id.toString());
+    // @ts-ignore
+    row.remove();
   }
 
 

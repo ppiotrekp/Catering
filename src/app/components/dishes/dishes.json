@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "image": "./images/pizza.jpg",
+    "image": "./assets/images/pizza.jpg",
     "name": "Pizza",
     "typeOfCuisine": "Italian",
     "typeOfMeal": "Dinner",
@@ -19,7 +19,7 @@
   },
   {
     "id": 2,
-    "image": "https://www.google.pl/search?q=pizza&sxsrf=ALiCzsbVfJa9xQ3NtIIJNYem5oLNseVq5A:1672056509379&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj4rqTyn5f8AhUmposKHVAJDQwQ_AUoAnoECAEQBA&biw=1920&bih=969&dpr=1#imgrc=Wn5PyY8C3nJFxM",
+    "image": "./assets/images/pizza.jpg",
     "name": "Pizza",
     "typeOfCuisine": "Italian",
     "typeOfMeal": "Dinner",
@@ -37,7 +37,7 @@
   },
   {
     "id": 3,
-    "image": "https://www.google.pl/search?q=pizza&sxsrf=ALiCzsbVfJa9xQ3NtIIJNYem5oLNseVq5A:1672056509379&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj4rqTyn5f8AhUmposKHVAJDQwQ_AUoAnoECAEQBA&biw=1920&bih=969&dpr=1#imgrc=Wn5PyY8C3nJFxM",
+    "image": "./assets/images/pizza.jpg",
     "name": "Pizza",
     "typeOfCuisine": "Italian",
     "typeOfMeal": "Dinner",
@@ -55,7 +55,7 @@
   },
   {
     "id": 4,
-    "image": "https://www.google.pl/search?q=pizza&sxsrf=ALiCzsbVfJa9xQ3NtIIJNYem5oLNseVq5A:1672056509379&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj4rqTyn5f8AhUmposKHVAJDQwQ_AUoAnoECAEQBA&biw=1920&bih=969&dpr=1#imgrc=Wn5PyY8C3nJFxM",
+    "image": "./assets/images/pizza.jpg",
     "name": "Pizza",
     "typeOfCuisine": "Italian",
     "typeOfMeal": "Dinner",
@@ -73,7 +73,7 @@
   },
   {
     "id": 5,
-    "image": "https://www.google.pl/search?q=pizza&sxsrf=ALiCzsbVfJa9xQ3NtIIJNYem5oLNseVq5A:1672056509379&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj4rqTyn5f8AhUmposKHVAJDQwQ_AUoAnoECAEQBA&biw=1920&bih=969&dpr=1#imgrc=Wn5PyY8C3nJFxM",
+    "image": "./assets/images/pizza.jpg",
     "name": "Pizza",
     "typeOfCuisine": "Italian",
     "typeOfMeal": "Dinner",
@@ -91,7 +91,7 @@
   },
   {
     "id": 6,
-    "image": "https://www.google.pl/search?q=pizza&sxsrf=ALiCzsbVfJa9xQ3NtIIJNYem5oLNseVq5A:1672056509379&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj4rqTyn5f8AhUmposKHVAJDQwQ_AUoAnoECAEQBA&biw=1920&bih=969&dpr=1#imgrc=Wn5PyY8C3nJFxM",
+    "image": "./assets/images/pizza.jpg",
     "name": "Pizza",
     "typeOfCuisine": "Italian",
     "typeOfMeal": "Dinner",
@@ -109,7 +109,7 @@
   },
   {
     "id": 7,
-    "image": "https://www.google.pl/search?q=pizza&sxsrf=ALiCzsbVfJa9xQ3NtIIJNYem5oLNseVq5A:1672056509379&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj4rqTyn5f8AhUmposKHVAJDQwQ_AUoAnoECAEQBA&biw=1920&bih=969&dpr=1#imgrc=Wn5PyY8C3nJFxM",
+    "image": "./assets/images/pizza.jpg",
     "name": "Pizza",
     "typeOfCuisine": "Italian",
     "typeOfMeal": "Dinner",
@@ -127,7 +127,7 @@
   },
   {
     "id": 8,
-    "image": "https://www.google.pl/search?q=pizza&sxsrf=ALiCzsbVfJa9xQ3NtIIJNYem5oLNseVq5A:1672056509379&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj4rqTyn5f8AhUmposKHVAJDQwQ_AUoAnoECAEQBA&biw=1920&bih=969&dpr=1#imgrc=Wn5PyY8C3nJFxM",
+    "image": "./assets/images/pizza.jpg",
     "name": "Pizza",
     "typeOfCuisine": "Italian",
     "typeOfMeal": "Dinner",
@@ -145,7 +145,7 @@
   },
   {
     "id": 9,
-    "image": "https://www.google.pl/search?q=pizza&sxsrf=ALiCzsbVfJa9xQ3NtIIJNYem5oLNseVq5A:1672056509379&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj4rqTyn5f8AhUmposKHVAJDQwQ_AUoAnoECAEQBA&biw=1920&bih=969&dpr=1#imgrc=Wn5PyY8C3nJFxM",
+    "image": "./assets/images/pizza.jpg",
     "name": "Pizza",
     "typeOfCuisine": "Italian",
     "typeOfMeal": "Dinner",
@@ -163,7 +163,7 @@
   },
   {
     "id": 10,
-    "image": "https://www.google.pl/search?q=pizza&sxsrf=ALiCzsbVfJa9xQ3NtIIJNYem5oLNseVq5A:1672056509379&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj4rqTyn5f8AhUmposKHVAJDQwQ_AUoAnoECAEQBA&biw=1920&bih=969&dpr=1#imgrc=Wn5PyY8C3nJFxM",
+    "image": "./assets/images/pizza.jpg",
     "name": "Pizza",
     "typeOfCuisine": "Italian",
     "typeOfMeal": "Dinner",
@@ -181,7 +181,7 @@
   },
   {
     "id": 12,
-    "image": "https://www.google.pl/search?q=pizza&sxsrf=ALiCzsbVfJa9xQ3NtIIJNYem5oLNseVq5A:1672056509379&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj4rqTyn5f8AhUmposKHVAJDQwQ_AUoAnoECAEQBA&biw=1920&bih=969&dpr=1#imgrc=Wn5PyY8C3nJFxM",
+    "image": "./assets/images/pizza.jpg",
     "name": "Pizza",
     "typeOfCuisine": "Italian",
     "typeOfMeal": "Dinner",
@@ -195,11 +195,11 @@
     ],
     "limit": 50,
     "price": 10,
-    "description": "The best pizza"
+    "description": "The best pizza 111111"
   },
   {
     "id": 13,
-    "image": "https://www.google.pl/search?q=pizza&sxsrf=ALiCzsbVfJa9xQ3NtIIJNYem5oLNseVq5A:1672056509379&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj4rqTyn5f8AhUmposKHVAJDQwQ_AUoAnoECAEQBA&biw=1920&bih=969&dpr=1#imgrc=Wn5PyY8C3nJFxM",
+    "image": "./assets/images/pizza.jpg",
     "name": "Pizza",
     "typeOfCuisine": "Italian",
     "typeOfMeal": "Dinner",

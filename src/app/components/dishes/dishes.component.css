@@ -56,4 +56,18 @@ tr:nth-child(even) {
   border: 3px solid blue;
 }
 
+img {
+  width: 50px;
+}
+
+.icons, .unavailable {
+  padding: 15px;
+}
+
+td {
+  text-align: center;
+}
+
+
+
 
