@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // @ts-ignore
 import dishes from './dishes.json'
+import {min} from "rxjs";
 
 @Component({
   selector: 'app-dishes',
@@ -17,22 +18,47 @@ export class DishesComponent implements OnInit {
 
   increaseAmountOfDishes(id: number) {
     var selector = document.getElementById(id.toString())
+    var selectorBottom = document.getElementById("amount")
     this.amount ++;
     // @ts-ignore
     selector.innerText = this.amount.toString();
+    // @ts-ignore
+    selectorBottom.innerText = this.amount.toString();
+    console.log(this.amount);
   }
 
   decreaseAmountOfDishes(id: number) {
     var selector = document.getElementById(id.toString())
+    var selectorBottom = document.getElementById("amount")
     this.amount --;
     // @ts-ignore
     selector.innerText = this.amount.toString();
+    // @ts-ignore
+    selectorBottom.innerText = this.amount.toString();
   }
+
+  // arr: number[] = [] ;
+  // minValue() {
+  //   for (let dish of this.dishes.values()) {
+  //     this.arr.push(dish.price)
+  //   }
+  //   console.log(Math.min(...this.arr));
+  //   return Math.min(...this.arr);
+  // }
+  //
+  // maxValue() {
+  //   for (let dish of this.dishes.values()) {
+  //     this.arr.push(dish.price)
+  //   }
+  //   // @ts-ignore
+  //   return Math.max(...this.arr);
+  // }
+
+
+
 
   ngOnInit(): void {
 
-    // const plusButton = document.getElementsByClassName("fas fa-plus-square");
-    // plusButton[0].addEventListener('click', updateAmountOfDishes);
   }
 
 

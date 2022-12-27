@@ -25,9 +25,10 @@
       <p id="{{dish.id}}">0</p>
       <i class="fas fa-minus-square" (click)="decreaseAmountOfDishes(dish.id)"></i>
     </div>
-
   </div>
-
+</div>
+<div class="amount" [ngClass]="{changeBackground: amount > 10}">
+  <p>0</p>
 </div>
 </body>
 </html>

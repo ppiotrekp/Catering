@@ -8,11 +8,13 @@
   display: flex;
   flex-direction: column;
   width: 210px;
+  height: 300px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin: 0px 10px 10px 10px;
   justify-content: space-around;
   text-align: center;
-  /*background-image: url("./images/pizza.jpg");*/
+  /*border: 3px solid red;*/
+
 }
 
 .icons {
@@ -28,3 +30,12 @@ p {
 h2 {
   text-align: center;
 }
+
+.amount {
+  background-color: orange;
+}
+
+.changeBackground {
+  background-color: blue;
+}
+
