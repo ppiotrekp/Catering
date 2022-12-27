@@ -1,5 +1,60 @@
-<div>
-  <p *ngFor="let dish of dishes">{{dish.name}}</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <title>Document</title>
+</head>
+<body>
+<div class = "container" >
+  <table>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Cuisine</th>
+      <th>Meal</th>
+      <th>Ingredients</th>
+      <th>Limit</th>
+      <th>Price</th>
+      <th>Description</th>
+    </tr>
+    <tr class="dish-row" id = "{{'dish' + dish.id}}" *ngFor="let dish of dishes" [ngClass]="{changeBackgroundOnLowAmount: dish.limit < 4 && dish.limit > 0, changeBorderOnTheLeastExpensive: dish.price === minValue(), changeBorderOnTheMostExpensive: dish.price === maxValue()}">
+    <td><img src = "{{dish.image}}"></td>
+    <td >{{dish.name | uppercase}}</td>
+    <td> {{dish.typeOfCuisine | uppercase}}</td>
+    <td>{{dish.typeOfMeal}}</td>
+    <td>{{dish.ingredients}}</td>
+    <td>{{dish.limit}}</td>
+    <td>{{dish.price}}</td>
+    <td>{{dish.description}}</td>
+      <td class="icons" id = {{dish.id}}{{dish.id}} [ngStyle]="{display: dish.limit === 0 ? 'none' : 'flex'}">
+<!--        <button>-->
+          <i class="fas fa-plus-square"  (click)="increaseAmountOfDishes(dish.id)"></i>
+<!--        </button>-->
+          <p id="{{dish.id}}">0</p>
+<!--        <button>-->
+          <i class="fas fa-minus-square" (click)="decreaseAmountOfDishes(dish.id)"></i>
+<!--        </button>-->
+      </td>
+      <td class="unavailable" [ngStyle]="{display: dish.limit === 0 ? 'flex' : 'none'}">UNAVAILABLE</td>
+      <td class="remove-btn"  (click)="removeById(dish.id)">
+        <button>
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </table>
+
 </div>
+<div class="amount" [ngClass]="{changeBackground: amount > 10}">
+  <p>0</p>
+</div>
+</body>
+</html>
+
+
 
 
