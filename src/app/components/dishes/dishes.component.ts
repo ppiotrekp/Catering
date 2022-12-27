@@ -37,22 +37,22 @@ export class DishesComponent implements OnInit {
     selectorBottom.innerText = this.amount.toString();
   }
 
-  // arr: number[] = [] ;
-  // minValue() {
-  //   for (let dish of this.dishes.values()) {
-  //     this.arr.push(dish.price)
-  //   }
-  //   console.log(Math.min(...this.arr));
-  //   return Math.min(...this.arr);
-  // }
-  //
-  // maxValue() {
-  //   for (let dish of this.dishes.values()) {
-  //     this.arr.push(dish.price)
-  //   }
-  //   // @ts-ignore
-  //   return Math.max(...this.arr);
-  // }
+  arr: number[] = [] ;
+  minValue() {
+    for (let dish of this.dishes.values()) {
+      this.arr.push(dish.price)
+    }
+    console.log(Math.min(...this.arr));
+    return Math.min(...this.arr);
+  }
+
+  maxValue() {
+    for (let dish of this.dishes.values()) {
+      this.arr.push(dish.price)
+    }
+    // @ts-ignore
+    return Math.max(...this.arr);
+  }
 
 
 

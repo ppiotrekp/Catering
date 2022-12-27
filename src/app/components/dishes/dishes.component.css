@@ -39,3 +39,21 @@ h2 {
   background-color: blue;
 }
 
+.changeBackgroundOnLowAmount {
+  background-color: coral;
+}
+
+.changeBorderOnTheLeastExpensive {
+  outline: 3px solid red;
+}
+
+.changeBorderOnTheMostExpensive {
+  outline: 3px solid green;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+  border: 3px solid blue;
+}
+
+

@@ -21,9 +21,9 @@
       <th>Price</th>
       <th>Description</th>
     </tr>
-    <tr *ngFor="let dish of dishes">
+    <tr *ngFor="let dish of dishes" [ngClass]="{changeBackgroundOnLowAmount: dish.limit < 4 && dish.limit > 0, changeBorderOnTheLeastExpensive: dish.price === minValue(), changeBorderOnTheMostExpensive: dish.price === maxValue()}">
     <td><img src = "{{dish.image}}"></td>
-    <td>{{dish.name | uppercase}}</td>
+    <td >{{dish.name | uppercase}}</td>
     <td> {{dish.typeOfCuisine | uppercase}}</td>
     <td>{{dish.typeOfMeal}}</td>
     <td>{{dish.ingredients}}</td>
