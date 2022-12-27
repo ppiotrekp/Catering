@@ -22,4 +22,24 @@ public class Dish {
   private int limit;
   private BigDecimal price;
   private String description;
+
+  public Dish(String imageUrl,
+              String name,
+              Cuisine cuisine,
+              Meal meal,
+              List<String> ingredients,
+              int limit,
+              BigDecimal price,
+              String description) {
+    this.imageUrl = imageUrl;
+    this.name = name;
+    this.cuisine = cuisine;
+    this.meal = meal;
+    this.ingredients = ingredients;
+    this.limit = limit;
+    this.price = price;
+    this.description = description;
+  }
 }
+
+
