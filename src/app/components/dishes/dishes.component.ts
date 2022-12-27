@@ -18,7 +18,7 @@ export class DishesComponent implements OnInit {
 
   increaseAmountOfDishes(id: number) {
     var selector = document.getElementById(id.toString())
-    var selectorBottom = document.getElementById("amount")
+    var selectorBottom = document.querySelector(".amount")
     this.amount ++;
     // @ts-ignore
     selector.innerText = this.amount.toString();
@@ -29,7 +29,7 @@ export class DishesComponent implements OnInit {
 
   decreaseAmountOfDishes(id: number) {
     var selector = document.getElementById(id.toString())
-    var selectorBottom = document.getElementById("amount")
+    var selectorBottom = document.querySelector(".amount")
     this.amount --;
     // @ts-ignore
     selector.innerText = this.amount.toString();
