@@ -23,4 +23,8 @@ public class DishService {
   public Dish getDish(String id) {
     return dishRepository.findById(id).get();
   }
+
+  public void removeDish(String id) {
+    dishRepository.deleteById(id);
+  }
 }
