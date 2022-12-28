@@ -22,4 +22,8 @@ export class DishService {
     return this.http.delete<void>(`${this.apiUrl}/dish/${dishId}`);
   }
 
+  public addDish(dish: Dish): Observable<Dish> {
+    return this.http.post<Dish>(`${this.apiUrl}/dish`, dish);
+  }
+
 }

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import {Dish} from "../../service/dish";
 import {DishService} from "../../service/dish.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {NgForm} from "@angular/forms";
+
 
 @Component({
   selector: 'app-dishes',
@@ -19,6 +21,8 @@ export class DishesComponent implements OnInit {
   //   limit:number, price:number, description:string
   // }[] = dishes;
   amount: number = 0;
+  newIngredient: string = '';
+  allIngredients : string[] = [];
   constructor(private dishService: DishService) { }
 
   increaseAmountOfDishes(id: string) {
@@ -98,7 +102,36 @@ export class DishesComponent implements OnInit {
     );
   }
 
+  public addDish(addForm: NgForm): void {
+    // @ts-ignore
+    let none = document.querySelector("#my-modal").style.display = 'none';
+    this.dishService.addDish(addForm.value).subscribe(
+      (response: Dish) => {
+        console.log(response);
+        this.getDishes();
+        // this.allIngredients.push(this.newIngredient);
+        // this.newIngredient = '';
+        addForm.reset();
+        none;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+        addForm.reset();
+        none;
+      }
+    );
+  }
 
+  openModal() {
+    const modalBody = document.querySelector("#my-modal")
+    // @ts-ignore
+    modalBody.style.display = 'block';
+  }
 
+  closeModal() {
+    const modalBody = document.querySelector("#my-modal")
+    // @ts-ignore
+    modalBody.style.display = 'none';
+  }
 
 }

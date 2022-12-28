@@ -1,20 +1,12 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  /*margin-left: 5%;*/
+  flex-direction: column;
+  margin-top: 50px;
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  width: 210px;
-  height: 300px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  margin: 0px 10px 10px 10px;
-  justify-content: space-around;
-  text-align: center;
-  /*border: 3px solid red;*/
-
+.tbl {
+  width: 50%;
 }
 
 .icons {
@@ -33,6 +25,8 @@ h2 {
 
 .amount {
   background-color: orange;
+  width: 50%;
+
 }
 
 .changeBackground {
@@ -66,6 +60,107 @@ img {
 
 td {
   text-align: center;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  margin: 10% auto;
+  width: 60%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: modalopen;
+  animation-duration: 1s;
+}
+
+.modal-open {
+  margin-left: 0;
+}
+
+.modal-header h2,
+.modal-footer h3 {
+  margin: 0;
+}
+
+.modal-header {
+  background: #428bca;;
+  padding: 15px;
+  color: #fff;
+  text-align: center;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.modal-body {
+  background: #fff;
+  margin: 0;
+}
+
+.modal-footer {
+  background: #428bca;;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.close {
+  float: right;
+  font-size: 30px;
+  color: #fff;
+}
+
+.close:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+header{
+  display: flex;
+  background-color:  rgb(60, 150, 200);
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  justify-content:space-around;
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+}
+
+header>div{
+  display: flex;
+  align-items: center;
+  color:whitesmoke;
+  margin: 5px;
+}
+
+.btn {
+  font-size: 15px;
+  border-radius: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 
