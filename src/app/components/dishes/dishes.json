@@ -6,12 +6,8 @@
     "typeOfCuisine": "Italian",
     "typeOfMeal": "Dinner",
     "ingredients": [
-      {
-        "name": "sauce"
-      },
-      {
-        "name": "cheese"
-      }
+      "sauce",
+      "cheese"
     ],
     "limit": 0,
     "price": 10,

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// @ts-ignore
-import dishes from './dishes.json'
-import {min} from "rxjs";
+// import dishes from './dishes.json'
+import {Dish} from "../../service/dish";
+import {DishService} from "../../service/dish.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-dishes',
@@ -9,14 +10,18 @@ import {min} from "rxjs";
   styleUrls: ['./dishes.component.css']
 })
 export class DishesComponent implements OnInit {
-  dishes:{id:number, image:string, name:string, typeOfCuisine:string,
-    typeOfMeal:string, ingredients:Array<String>,
-    limit:number, price:number, description:string
-  }[] = dishes;
-  amount: number = 0;
-  constructor() { }
+  // @ts-ignore
+  public dishes: Dish[];
 
-  increaseAmountOfDishes(id: number) {
+
+  // dishes:{id:number, image:string, name:string, typeOfCuisine:string,
+  //   typeOfMeal:string, ingredients:Array<String>,
+  //   limit:number, price:number, description:string
+  // }[] = dishes;
+  amount: number = 0;
+  constructor(private dishService: DishService) { }
+
+  increaseAmountOfDishes(id: string) {
     var selector = document.getElementById(id.toString())
     var selectorBottom = document.querySelector(".amount")
     this.amount ++;
@@ -27,7 +32,7 @@ export class DishesComponent implements OnInit {
     console.log(this.amount);
   }
 
-  decreaseAmountOfDishes(id: number) {
+  decreaseAmountOfDishes(id: string) {
     var selector = document.getElementById(id.toString())
     var selectorBottom = document.querySelector(".amount")
     this.amount --;
@@ -54,7 +59,7 @@ export class DishesComponent implements OnInit {
     return Math.max(...this.arr);
   }
 
-  removeById(id: number) {
+  removeById(id: string) {
     var row = document.querySelector("#dish" + id.toString());
     // @ts-ignore
     row.remove();
@@ -65,10 +70,20 @@ export class DishesComponent implements OnInit {
   }
 
 
-
-
   ngOnInit(): void {
+    this.getDishes();
+  }
 
+  public getDishes(): void {
+    this.dishService.getDishes().subscribe(
+      (response: Dish[]) => {
+        this.dishes = response;
+        console.log(this.dishes);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
 
 

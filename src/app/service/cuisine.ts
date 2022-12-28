@@ -1,0 +1,4 @@
+export enum Cuisine {
+  POLISH, ITALIAN, INDIAN, FRENCH, INTERNATIONAL
+
+}
