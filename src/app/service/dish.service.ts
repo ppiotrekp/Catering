@@ -18,4 +18,8 @@ export class DishService {
     return this.http.get<Dish[]>(`${this.apiUrl}/dishes`);
   }
 
+  public deleteDish(dishId: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/dish/${dishId}`);
+  }
+
 }

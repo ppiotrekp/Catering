@@ -86,6 +86,19 @@ export class DishesComponent implements OnInit {
     );
   }
 
+  public deleteDish(dishId: string): void {
+    this.dishService.deleteDish(dishId).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.getDishes();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+
 
 
 }

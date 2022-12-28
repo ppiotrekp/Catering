@@ -1,0 +1,7 @@
+pl\ppyrczak\backend\util\Meal.class
+pl\ppyrczak\backend\repository\DishRepository.class
+pl\ppyrczak\backend\service\DishService.class
+pl\ppyrczak\backend\model\Dish.class
+pl\ppyrczak\backend\BackendApplication.class
+pl\ppyrczak\backend\controller\DishController.class
+pl\ppyrczak\backend\util\Cuisine.class
