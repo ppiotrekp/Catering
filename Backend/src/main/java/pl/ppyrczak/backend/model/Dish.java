@@ -6,7 +6,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import pl.ppyrczak.backend.util.Cuisine;
 import pl.ppyrczak.backend.util.Meal;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -17,9 +16,7 @@ public class Dish {
   private String id;
   private String imageUrl;
   private String name;
-  @Enumerated(EnumType.STRING)
   private Cuisine cuisine;
-  @Enumerated(EnumType.STRING)
   private Meal meal;
   private List<String> ingredients;
   private int limit;
