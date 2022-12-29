@@ -15,15 +15,11 @@ export class DishesComponent implements OnInit {
   // @ts-ignore
   public dishes: Dish[];
 
-  display = false;
 
-  onPress() {
-    //this.display = true;
-
-    //To toggle the component
-    this.display = !this.display;
-  }
-
+  // dishes:{id:number, image:string, name:string, typeOfCuisine:string,
+  //   typeOfMeal:string, ingredients:Array<String>,
+  //   limit:number, price:number, description:string
+  // }[] = dishes;
   amount: number = 0;
   newIngredient: string = '';
   allIngredients : string[] = [];
@@ -31,15 +27,20 @@ export class DishesComponent implements OnInit {
   }
 
   increaseAmountOfDishes(id: string) {
-    var selector = document.getElementById(id.toString())
-    var selectorBottom = document.querySelector(".amount")
-    this.amount ++;
+    // var selector = document.getElementById(id.toString())
+    // var selectorBottom = document.querySelector(".amount")
+    // this.amount ++;
+    // // @ts-ignore
+    // selector.innerText = this.amount.toString();
+    // // @ts-ignore
+    // selectorBottom.innerText = this.amount.toString();
+    // console.log(this.amount);
     // @ts-ignore
-    selector.innerText = this.amount.toString();
-    // @ts-ignore
-    selectorBottom.innerText = this.amount.toString();
-    console.log(this.amount);
-
+    for (var dish of this.dishes) {
+      if (dish.id === id) {
+        console.log(dish.ingredients);
+      }
+    }
 
   }
 

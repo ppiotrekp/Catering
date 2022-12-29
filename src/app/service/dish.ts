@@ -1,14 +1,15 @@
 import {Cuisine} from "./cuisine";
 import {Meal} from "./meal";
 
-export interface Dish {
-  id: string;
-  imageUrl: string;
-  name: string;
-  cuisine: Cuisine;
-  meal: Meal;
-  ingredients:Array<string>;
-  limit:number;
+export class Dish {
+  id: string = '';
+  imageUrl: string= '';
+  name: string= '';
+  cuisine: Cuisine = Cuisine.FRENCH;
+  meal: Meal= Meal.MAIN;
+  ingredients:Array<string>= [''];
+  limit:number = 0;
   price: any;
-  description: string;
+  description: string = '';
+  amount: number = 0;
 }
