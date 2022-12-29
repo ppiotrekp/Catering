@@ -16,20 +16,15 @@
       <button class="btn" id="add-btn" (click)="openModal()">
         <i id="icon" class="fa pot-food">New Dish</i>
       </button>
-      <button class="btn" id="filter-btn" (click)="openModal()">
+      <button class="btn" id="filter-btn" (click)="onPress()">
         Filter
       </button>
     </div>
-
-
-
   </div>
-
 </header>
 
 <div class="container">
   <div class="border">
-
   </div>
   <table class="tbl">
     <tr>
@@ -41,6 +36,7 @@
       <th>Limit</th>
       <th>Price</th>
       <th>Description</th>
+      <th>Amount</th>
     </tr>
     <tr class="dish-row" id="{{'dish' + dish.id}}" *ngFor="let dish of dishes"
         [ngClass]="{changeBackgroundOnLowAmount: dish.limit < 4 && dish.limit > 0, changeBorderOnTheLeastExpensive: dish.price === minValue(), changeBorderOnTheMostExpensive: dish.price === maxValue()}">
@@ -75,7 +71,9 @@
       </td>
     </tr>
   </table>
-
+  <div id ="search-comp" *ngIf="display">
+    <app-search></app-search>
+  </div>
 
 </div>
 <div class="amount" [ngClass]="{changeBackground: amount > 10}">

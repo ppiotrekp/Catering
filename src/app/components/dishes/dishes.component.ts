@@ -15,15 +15,20 @@ export class DishesComponent implements OnInit {
   // @ts-ignore
   public dishes: Dish[];
 
+  display = false;
 
-  // dishes:{id:number, image:string, name:string, typeOfCuisine:string,
-  //   typeOfMeal:string, ingredients:Array<String>,
-  //   limit:number, price:number, description:string
-  // }[] = dishes;
+  onPress() {
+    //this.display = true;
+
+    //To toggle the component
+    this.display = !this.display;
+  }
+
   amount: number = 0;
   newIngredient: string = '';
   allIngredients : string[] = [];
-  constructor(private dishService: DishService) { }
+  constructor(private dishService: DishService) {
+  }
 
   increaseAmountOfDishes(id: string) {
     var selector = document.getElementById(id.toString())
@@ -34,6 +39,8 @@ export class DishesComponent implements OnInit {
     // @ts-ignore
     selectorBottom.innerText = this.amount.toString();
     console.log(this.amount);
+
+
   }
 
   decreaseAmountOfDishes(id: string) {
@@ -83,6 +90,18 @@ export class DishesComponent implements OnInit {
       (response: Dish[]) => {
         this.dishes = response;
         console.log(this.dishes);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  public getDish(dishId: string): void {
+    this.dishService.getDish(dishId).subscribe(
+      (response: Dish) => {
+        console.log(response);
+        this.getDish(dishId);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

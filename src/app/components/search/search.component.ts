@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Meal} from "../../service/meal";
 
 @Component({
   selector: 'app-search',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
+  // @ts-ignore
+  meals: Meal[]
   constructor() { }
 
   ngOnInit(): void {
