@@ -14,31 +14,26 @@ import {NgForm} from "@angular/forms";
 export class DishesComponent implements OnInit {
   // @ts-ignore
   public dishes: Dish[];
-
-
-  // dishes:{id:number, image:string, name:string, typeOfCuisine:string,
-  //   typeOfMeal:string, ingredients:Array<String>,
-  //   limit:number, price:number, description:string
-  // }[] = dishes;
   amount: number = 0;
+
   newIngredient: string = '';
   allIngredients : string[] = [];
   constructor(private dishService: DishService) {
   }
 
   increaseAmountOfDishes(id: string) {
-    // var selector = document.getElementById(id.toString())
-    // var selectorBottom = document.querySelector(".amount")
-    // this.amount ++;
-    // // @ts-ignore
-    // selector.innerText = this.amount.toString();
-    // // @ts-ignore
-    // selectorBottom.innerText = this.amount.toString();
-    // console.log(this.amount);
+    var selector = document.getElementById(id.toString())
+    var selectorBottom = document.querySelector(".amount")
     // @ts-ignore
+    selectorBottom.innerText = this.amount.toString();
     for (var dish of this.dishes) {
       if (dish.id === id) {
-        console.log(dish.ingredients);
+        dish.amount++;
+        // @ts-ignore
+        selector.innerText = dish.amount.toString();
+        this.amount ++;
+        // @ts-ignore
+        selectorBottom.innerText = this.amount.toString();
       }
     }
 
@@ -47,11 +42,18 @@ export class DishesComponent implements OnInit {
   decreaseAmountOfDishes(id: string) {
     var selector = document.getElementById(id.toString())
     var selectorBottom = document.querySelector(".amount")
-    this.amount --;
-    // @ts-ignore
-    selector.innerText = this.amount.toString();
     // @ts-ignore
     selectorBottom.innerText = this.amount.toString();
+    for (var dish of this.dishes) {
+      if (dish.id === id) {
+        dish.amount--;
+        // @ts-ignore
+        selector.innerText = dish.amount.toString();
+        this.amount --;
+        // @ts-ignore
+        selectorBottom.innerText = this.amount.toString();
+      }
+    }
   }
 
   arr: number[] = [] ;

@@ -1,9 +1,10 @@
 package pl.ppyrczak.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.annotation.Id;
 import pl.ppyrczak.backend.util.Cuisine;
 import pl.ppyrczak.backend.util.Meal;
 
@@ -25,6 +26,7 @@ public class Dish {
   private String description;
 
   @Transient
+  @JsonIgnore
   private int amount;
 
   public Dish(String imageUrl,
