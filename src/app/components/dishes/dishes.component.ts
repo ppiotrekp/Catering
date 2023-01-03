@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import {Dish} from "../../service/dish";
 import {DishService} from "../../service/dish.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {NgForm} from "@angular/forms";
+
 
 @Component({
   selector: 'app-dishes',
@@ -12,34 +14,45 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class DishesComponent implements OnInit {
   // @ts-ignore
   public dishes: Dish[];
-
-
-  // dishes:{id:number, image:string, name:string, typeOfCuisine:string,
-  //   typeOfMeal:string, ingredients:Array<String>,
-  //   limit:number, price:number, description:string
-  // }[] = dishes;
   amount: number = 0;
-  constructor(private dishService: DishService) { }
+  display = false;
+  sentId: string = '';
+  constructor(private dishService: DishService) {
+  }
 
   increaseAmountOfDishes(id: string) {
     var selector = document.getElementById(id.toString())
     var selectorBottom = document.querySelector(".amount")
-    this.amount ++;
-    // @ts-ignore
-    selector.innerText = this.amount.toString();
     // @ts-ignore
     selectorBottom.innerText = this.amount.toString();
-    console.log(this.amount);
+    for (var dish of this.dishes) {
+      if (dish.id === id) {
+        dish.amount++;
+        // @ts-ignore
+        selector.innerText = dish.amount.toString();
+        this.amount ++;
+        // @ts-ignore
+        selectorBottom.innerText = this.amount.toString();
+      }
+    }
+
   }
 
   decreaseAmountOfDishes(id: string) {
     var selector = document.getElementById(id.toString())
     var selectorBottom = document.querySelector(".amount")
-    this.amount --;
-    // @ts-ignore
-    selector.innerText = this.amount.toString();
     // @ts-ignore
     selectorBottom.innerText = this.amount.toString();
+    for (var dish of this.dishes) {
+      if (dish.id === id) {
+        dish.amount--;
+        // @ts-ignore
+        selector.innerText = dish.amount.toString();
+        this.amount --;
+        // @ts-ignore
+        selectorBottom.innerText = this.amount.toString();
+      }
+    }
   }
 
   arr: number[] = [] ;
@@ -47,7 +60,6 @@ export class DishesComponent implements OnInit {
     for (let dish of this.dishes.values()) {
       this.arr.push(dish.price)
     }
-    console.log(Math.min(...this.arr));
     return Math.min(...this.arr);
   }
 
@@ -55,20 +67,8 @@ export class DishesComponent implements OnInit {
     for (let dish of this.dishes.values()) {
       this.arr.push(dish.price);
     }
-    // @ts-ignore
     return Math.max(...this.arr);
   }
-
-  removeById(id: string) {
-    var row = document.querySelector("#dish" + id.toString());
-    // @ts-ignore
-    row.remove();
-  }
-
-  addReviewsComponent() {
-
-  }
-
 
   ngOnInit(): void {
     this.getDishes();
@@ -98,7 +98,40 @@ export class DishesComponent implements OnInit {
     );
   }
 
+  public addDish(addForm: NgForm): void {
+    // @ts-ignore
+    let none = document.querySelector("#my-modal").style.display = 'none';
+    this.dishService.addDish(addForm.value).subscribe(
+      (response: Dish) => {
+        console.log(response);
+        this.getDishes();
+        // this.allIngredients.push(this.newIngredient);
+        // this.newIngredient = '';
+        addForm.reset();
+        none;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+        addForm.reset();
+        none;
+      }
+    );
+  }
 
+  openModal() {
+    const modalBody = document.querySelector("#my-modal")
+    // @ts-ignore
+    modalBody.style.display = 'block';
+  }
 
+  closeModal() {
+    const modalBody = document.querySelector("#my-modal")
+    // @ts-ignore
+    modalBody.style.display = 'none';
+  }
 
+  openDishInfo(id: string) {
+    this.sentId = id;
+    this.display = !this.display;
+  }
 }
