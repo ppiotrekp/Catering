@@ -1,6 +1,5 @@
 package pl.ppyrczak.backend.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
@@ -26,7 +25,7 @@ public class Dish {
   private String description;
 
   @Transient
-  @JsonIgnore
+//  @JsonIgnore
   private int amount;
 
   public Dish(String imageUrl,

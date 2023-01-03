@@ -15,9 +15,8 @@ export class DishesComponent implements OnInit {
   // @ts-ignore
   public dishes: Dish[];
   amount: number = 0;
-
-  newIngredient: string = '';
-  allIngredients : string[] = [];
+  display = false;
+  sentId: string = '';
   constructor(private dishService: DishService) {
   }
 
@@ -61,7 +60,6 @@ export class DishesComponent implements OnInit {
     for (let dish of this.dishes.values()) {
       this.arr.push(dish.price)
     }
-    console.log(Math.min(...this.arr));
     return Math.min(...this.arr);
   }
 
@@ -69,20 +67,8 @@ export class DishesComponent implements OnInit {
     for (let dish of this.dishes.values()) {
       this.arr.push(dish.price);
     }
-    // @ts-ignore
     return Math.max(...this.arr);
   }
-
-  removeById(id: string) {
-    var row = document.querySelector("#dish" + id.toString());
-    // @ts-ignore
-    row.remove();
-  }
-
-  addReviewsComponent() {
-
-  }
-
 
   ngOnInit(): void {
     this.getDishes();
@@ -93,18 +79,6 @@ export class DishesComponent implements OnInit {
       (response: Dish[]) => {
         this.dishes = response;
         console.log(this.dishes);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
-
-  public getDish(dishId: string): void {
-    this.dishService.getDish(dishId).subscribe(
-      (response: Dish) => {
-        console.log(response);
-        this.getDish(dishId);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -156,4 +130,8 @@ export class DishesComponent implements OnInit {
     modalBody.style.display = 'none';
   }
 
+  openDishInfo(id: string) {
+    this.sentId = id;
+    this.display = !this.display;
+  }
 }

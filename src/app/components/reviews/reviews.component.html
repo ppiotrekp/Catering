@@ -1,1 +1,63 @@
-<p>reviews works!</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div id="my-modal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2>{{dish.name | uppercase}}</h2>
+    </div>
+    <div class="modal-photo">
+      <img src = "{{dish.imageUrl}}">
+    </div>
+    <div class="modal-body">
+      <table class="tbl">
+        <tr>
+          <th>Cuisine</th>
+          <th>Meal</th>
+          <th>Ingredients</th>
+          <th>Limit</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Grade</th>
+        </tr>
+        <tr class="dish-row">
+<!--          <td> <img class="dish-img"  src="{{dish.imageUrl}}"></td>-->
+          <td> {{dish.cuisine }}</td>
+          <td>{{dish.meal.toString() | lowercase}}</td>
+          <td>{{dish.ingredients}}</td>
+          <td>{{dish.limit}}</td>
+          <td>{{dish.price}} $</td>
+          <td>{{dish.description}}</td>
+          <td class="icons" id={{dish.id}}{{dish.id}} [ngStyle]="{display: dish.limit === 0 ? 'none' : 'flex'}">
+                    <button>
+            <i class="fas fa-plus-square"></i>
+                    </button>
+            <p id="{{dish.id}}">0</p>
+                    <button>
+            <i class="fas fa-minus-square" ></i>
+                    </button>
+          </td>
+          <td class="unavailable" [ngStyle]="{display: dish.limit === 0 ? 'flex' : 'none'}">UNAVAILABLE</td>
+        </tr>
+
+      </table>
+      <div class="review-container">
+        <h3>Add a review</h3>
+        <button id="review-btn">
+          <i class="fas fa-plus-square" ></i>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
