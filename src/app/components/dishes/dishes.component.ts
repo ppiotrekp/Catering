@@ -17,6 +17,8 @@ export class DishesComponent implements OnInit {
   amount: number = 0;
   display = false;
   sentId: string = '';
+  page: number = 0;
+
   constructor(private dishService: DishService) {
   }
 
@@ -70,19 +72,42 @@ export class DishesComponent implements OnInit {
     return Math.max(...this.arr);
   }
 
+  nextPage() {
+    this.page++;
+    this.getDishesWithPages();
+  }
+
+  previousPage() {
+    this.page--;
+    this.getDishesWithPages();
+  }
+
   ngOnInit(): void {
-    this.getDishes();
+    this.getDishesWithPages();
   }
 
   public getDishes(): void {
-    this.dishService.getDishes().subscribe(
-      (response: Dish[]) => {
-        this.dishes = response;
-        console.log(this.dishes);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
+    // this.dishService.getDishes().subscribe(
+    //   (response: Dish[]) => {
+    //     this.dishes = response;
+    //     console.log(this.dishes);
+    //   },
+    //   (error: HttpErrorResponse) => {
+    //     alert(error.message);
+    //   }
+    // );
+  }
+
+  public getDishesWithPages() {
+    this.dishService.getDishesWithPages(this.page).subscribe(
+        (response: Dish[]) => {
+          this.dishes = response;
+
+          console.log(this.dishes);
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
     );
   }
 

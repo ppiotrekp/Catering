@@ -1,4 +1,5 @@
 package pl.ppyrczak.backend.controller;
+
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import pl.ppyrczak.backend.model.Dish;
@@ -25,6 +26,12 @@ public class DishController {
   @GetMapping("/dishes")
   public List<Dish> getDishes() {
     return dishService.getDishes();
+  }
+
+  @ResponseStatus(OK)
+  @GetMapping("/dishes/page")
+  public List<Dish> getAllDishes(@RequestParam(required = false) int page) {
+    return dishService.getAllDishes(page);
   }
 
   @ResponseStatus(OK)

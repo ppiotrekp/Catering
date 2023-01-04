@@ -67,9 +67,14 @@
         </td>
       </tr>
       <div id="search-comp" *ngIf="display">
-        <app-reviews [data]="(sentId)"></app-reviews>
+        <app-reviews routerLink="dish" [data]="(sentId)"></app-reviews>
       </div>
     </table>
+
+    <div class="pages-btn">
+      <button id="prev-btn" (click)="previousPage()">Previous</button>
+      <button id ="next-btn" (click)="nextPage()">Next</button>
+    </div>
 
     <div class="amount" [ngClass]="{changeBackground: amount > 10}">
       <p>0</p>
