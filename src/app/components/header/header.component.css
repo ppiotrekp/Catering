@@ -1,0 +1,24 @@
+header{
+  display: flex;
+  background-color:  rgb(60, 150, 200);
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  justify-content:space-around;
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+}
+
+.btn {
+  font-size: 15px;
+  border-radius: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#cart-btn {
+  float: right;
+}
+

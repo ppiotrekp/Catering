@@ -7,14 +7,18 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { SearchComponent } from './components/search/search.component';
+import {HeaderComponent} from "./components/header/header.component";
+
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DishesComponent,
-    ReviewsComponent,
-    SearchComponent
-  ],
+    declarations: [
+        AppComponent,
+        DishesComponent,
+        ReviewsComponent,
+        SearchComponent,
+        HeaderComponent
+    ],
   imports: [
     BrowserModule,
     HttpClientModule,

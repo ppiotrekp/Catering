@@ -115,7 +115,7 @@ export class DishesComponent implements OnInit {
     this.dishService.deleteDish(dishId).subscribe(
       (response: void) => {
         console.log(response);
-        this.getDishes();
+        this.getDishesWithPages();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -129,9 +129,7 @@ export class DishesComponent implements OnInit {
     this.dishService.addDish(addForm.value).subscribe(
       (response: Dish) => {
         console.log(response);
-        this.getDishes();
-        // this.allIngredients.push(this.newIngredient);
-        // this.newIngredient = '';
+        this.getDishesWithPages();
         addForm.reset();
         none;
       },
