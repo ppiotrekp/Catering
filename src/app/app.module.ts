@@ -8,8 +8,13 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { SearchComponent } from './components/search/search.component';
 import {HeaderComponent} from "./components/header/header.component";
+import {RouterModule, Routes} from "@angular/router";
+import { CartComponent } from './components/cart/cart.component';
 
-
+const appRoute: Routes = [
+  {path: 'dishes', component:DishesComponent},
+  {path: 'cart', component:CartComponent}
+]
 
 @NgModule({
     declarations: [
@@ -17,12 +22,14 @@ import {HeaderComponent} from "./components/header/header.component";
         DishesComponent,
         ReviewsComponent,
         SearchComponent,
-        HeaderComponent
+        HeaderComponent,
+        CartComponent
     ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoute)
   ],
   providers: [],
   bootstrap: [AppComponent]

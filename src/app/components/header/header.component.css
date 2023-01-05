@@ -22,3 +22,8 @@ header{
   float: right;
 }
 
+.buttons {
+  display: flex;
+  flex-direction: column-reverse;
+}
+

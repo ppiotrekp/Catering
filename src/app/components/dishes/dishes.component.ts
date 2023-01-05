@@ -4,6 +4,7 @@ import {Dish} from "../../service/dish";
 import {DishService} from "../../service/dish.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
+import {SharedService} from "../../shared/shared.service";
 
 
 @Component({
@@ -19,8 +20,9 @@ export class DishesComponent implements OnInit {
   sentId: string = '';
   page: number = 0;
 
-  constructor(private dishService: DishService) {
+  constructor(private dishService: DishService, private sharedService: SharedService) {
   }
+  message:string = "AA";
 
   increaseAmountOfDishes(id: string) {
     var selector = document.getElementById(id.toString())
@@ -84,19 +86,9 @@ export class DishesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDishesWithPages();
+    this.sharedService.setMessage(this.message);
   }
 
-  public getDishes(): void {
-    // this.dishService.getDishes().subscribe(
-    //   (response: Dish[]) => {
-    //     this.dishes = response;
-    //     console.log(this.dishes);
-    //   },
-    //   (error: HttpErrorResponse) => {
-    //     alert(error.message);
-    //   }
-    // );
-  }
 
   public getDishesWithPages() {
     this.dishService.getDishesWithPages(this.page).subscribe(
