@@ -10,6 +10,8 @@ import { SearchComponent } from './components/search/search.component';
 import {HeaderComponent} from "./components/header/header.component";
 import {RouterModule, Routes} from "@angular/router";
 import { CartComponent } from './components/cart/cart.component';
+import { FilterPipe } from './shared/filter.pipe';
+
 
 const appRoute: Routes = [
   {path: 'dishes', component:DishesComponent},
@@ -23,15 +25,16 @@ const appRoute: Routes = [
         ReviewsComponent,
         SearchComponent,
         HeaderComponent,
-        CartComponent
+        CartComponent,
+        FilterPipe,
+        // SharedComponent
     ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoute)
+    RouterModule.forRoot(appRoute),
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

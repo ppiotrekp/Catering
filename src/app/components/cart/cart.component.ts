@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SharedService} from "../../shared/shared.service";
+import {CartService} from "../../service/cart.service";
 
 @Component({
   selector: 'app-cart',
@@ -7,13 +7,22 @@ import {SharedService} from "../../shared/shared.service";
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-// @ts-ignore
-  message: string;
-  constructor(private sharedService: SharedService) { }
+  public dishes : any = [];
+  public grandTotal !: number;
+  constructor(private cartService : CartService) { }
 
   ngOnInit(): void {
-    this.message = this.sharedService.getMessage();
-    console.log(this.message);
+    this.cartService.getProducts()
+      .subscribe(res=>{
+        this.dishes = res;
+        this.grandTotal = this.cartService.getTotalPrice();
+      })
+  }
+  removeItem(item: any){
+    this.cartService.removeCartItem(item);
+  }
+  emptycart(){
+    this.cartService.removeAllCart();
   }
 
 }
