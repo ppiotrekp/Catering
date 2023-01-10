@@ -27,59 +27,97 @@
   <div class="container">
     <div class="border">
     </div>
-    <table class="tbl">
-      <tr>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Cuisine</th>
-        <th>Meal</th>
-        <th>Ingredients</th>
-        <th>Limit</th>
-        <th>Price</th>
-        <th>Description</th>
-        <th>Amount</th>
-      </tr>
-      <tr class="dish-row" id="{{'dish' + dish.id}}" *ngFor="let dish of dishes"
-          [ngClass]="{changeBackgroundOnLowAmount: dish.limit < 4 && dish.limit > 0, changeBorderOnTheLeastExpensive: dish.price === minValue(), changeBorderOnTheMostExpensive: dish.price === maxValue()}">
-        <td><img class="dish-img" (click)="openDishInfo(dish.id)" src="{{dish.imageUrl}}"></td>
-        <td>{{dish.name | uppercase}}</td>
-        <td> {{dish.cuisine }}</td>
-        <td>{{dish.meal.toString() | lowercase}}</td>
-        <td>{{dish.ingredients}}</td>
-        <td>{{dish.limit}}</td>
-        <td>{{dish.price}} $</td>
-        <td>{{dish.description}}</td>
-        <td class="icons" id={{dish.id}}{{dish.id}} [ngStyle]="{display: dish.limit === 0 ? 'none' : 'flex'}">
-          <!--        <button>-->
-          <i class="fas fa-plus-square" (click)="increaseAmountOfDishes(dish.id)"></i>
-          <!--        </button>-->
-          <p id="{{dish.id}}">0</p>
-          <!--        <button>-->
-          <i class="fas fa-minus-square" (click)="decreaseAmountOfDishes(dish.id)"></i>
-          <!--        </button>-->
-        </td>
-        <td class="unavailable" [ngStyle]="{display: dish.limit === 0 ? 'flex' : 'none'}">UNAVAILABLE</td>
+    <!--    <table class="tbl">-->
+    <!--      <tr>-->
+    <!--        <th>Image</th>-->
+    <!--        <th>Name</th>-->
+    <!--        <th>Cuisine</th>-->
+    <!--        <th>Meal</th>-->
+    <!--        <th>Ingredients</th>-->
+    <!--        <th>Limit</th>-->
+    <!--        <th>Price</th>-->
+    <!--        <th>Description</th>-->
+    <!--        <th>Amount</th>-->
+    <!--      </tr>-->
+    <!--      <tr class="dish-row" id="{{'dish' + dish.id}}" *ngFor="let dish of filterCategory | filter:searchKey:'name'"-->
+    <!--              [ngClass]="{changeBackgroundOnLowAmount: dish.limit < 4 && dish.limit > 0, changeBorderOnTheLeastExpensive: dish.price === minValue(), changeBorderOnTheMostExpensive: dish.price === maxValue()}">-->
+    <!--        <td><img class="dish-img" (click)="openDishInfo(dish.id)" src="{{dish.imageUrl}}"></td>-->
+    <!--        <td>{{dish.name | uppercase}}</td>-->
+    <!--        <td> {{dish.cuisine }}</td>-->
+    <!--        <td>{{dish.meal.toString() | lowercase}}</td>-->
+    <!--        <td>{{dish.ingredients}}</td>-->
+    <!--        <td>{{dish.limit}}</td>-->
+    <!--        <td>{{dish.price}} $</td>-->
+    <!--        <td>{{dish.description}}</td>-->
+    <!--        <td class="icons" id={{dish.id}}{{dish.id}} [ngStyle]="{display: dish.limit === 0 ? 'none' : 'flex'}">-->
+    <!--          &lt;!&ndash;        <button>&ndash;&gt;-->
+    <!--          <i class="fas fa-plus-square" (click)="increaseAmountOfDishes(dish.id)"></i>-->
+    <!--          &lt;!&ndash;        </button>&ndash;&gt;-->
+    <!--          <p id="{{dish.id}}">0</p>-->
+    <!--          &lt;!&ndash;        <button>&ndash;&gt;-->
+    <!--          <i class="fas fa-minus-square" (click)="decreaseAmountOfDishes(dish.id)"></i>-->
+    <!--          &lt;!&ndash;        </button>&ndash;&gt;-->
+    <!--        </td>-->
+    <!--        <td class="unavailable" [ngStyle]="{display: dish.limit === 0 ? 'flex' : 'none'}">UNAVAILABLE</td>-->
 
-        <td class="remove-btn" (click)="deleteDish(dish.id)">
-          <button>
-            <i class="fa fa-trash"></i>
-          </button>
-        </td>
-      </tr>
-      <div id="search-comp" *ngIf="display">
-        <app-reviews [data]="(sentId)"></app-reviews>
-      </div>
-    </table>
+    <!--        <td class="remove-btn" (click)="deleteDish(dish.id)">-->
+    <!--          <button>-->
+    <!--            <i class="fa fa-trash"></i>-->
+    <!--          </button>-->
+    <!--        </td>-->
+    <!--      </tr>-->
+    <!--      <div id="search-comp" *ngIf="display">-->
+    <!--        <app-reviews routerLink="dish" [data]="(sentId)"></app-reviews>-->
+    <!--      </div>-->
+    <!--    </table>-->
+    <div class="container">
+      <ng-container *ngFor="let dish of filterCategory | filter:searchKey:'name'">
+        <div class="dish-row">
+          <div class="card col-md-3" [ngClass]="{changeBackgroundOnLowAmount: dish.limit < 4 && dish.limit > 0, changeBorderOnTheLeastExpensive: dish.price === minValue(), changeBorderOnTheMostExpensive: dish.price === maxValue()}">
+            <img class="dish-img" (click)="openDishInfo(dish.id)" src="{{dish.imageUrl}}">
+            <h5
+              style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{dish.name}}</h5>
+            <p
+              style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{dish.description}}</p>
+            <p><strong>Cuisine:</strong> {{dish.cuisine.toString() | uppercase}}</p>
+            <p><strong>Meal:</strong> {{dish.meal.toString() | uppercase}}</p>
+            <p><strong>Ingredients:</strong> {{dish.ingredients}}</p>
+            <p><strong>Limit:</strong> {{dish.limit}}</p>
+            <p><strong>Price:</strong> {{dish.price}} $</p>
+            <td class="icons" id={{dish.id}}{{dish.id}} [ngStyle]="{display: dish.limit === 0 ? 'none' : 'flex'}">
+              <i class="fas fa-plus-square" (click)="increaseAmountOfDishes(dish.id)"></i>
+              <p id="{{dish.id}}">0</p>
+              <i class="fas fa-minus-square" (click)="decreaseAmountOfDishes(dish.id)"></i>
+            </td>
+            <td class="unavailable" [ngStyle]="{display: dish.limit === 0 ? 'flex' : 'none'}">UNAVAILABLE</td>
+            <div class="remove-btn" (click)="deleteDish(dish.id)">
+              <button>
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
+          </div>
+          <div id="search-comp" *ngIf="displayModal">
+            <app-reviews [data]="(sentId)"></app-reviews>
+          </div>
+        </div>
+      </ng-container>
+
+    </div>
+
+    <div class="pages-btn">
+      <button id="prev-btn" (click)="previousPage()">Previous</button>
+      <button id="next-btn" (click)="nextPage()">Next</button>
+    </div>
 
     <div class="amount" [ngClass]="{changeBackground: amount > 10}">
       <p>0</p>
     </div>
   </div>
 
-<div class="filter-container">
-  <h1> aa </h1>
-</div>
+  <div class="filter-container">
+    <h1> aa </h1>
   </div>
+</div>
 <br>
 
 

@@ -1,27 +1,31 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+body {
   margin-top: 50px;
 }
 
-.tbl {
-  width: 50%;
-}
-
-.icons {
+.container {
   display: flex;
-  justify-content: space-around;
-  margin: 0 30% 0 30%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /*margin-left: 70px;*/
 }
 
-p {
-  margin: 0px;
-}
+/*.tbl {*/
+/*  width: 50%;*/
+/*}*/
 
-h2 {
-  text-align: center;
-}
+/*.icons {*/
+/*  display: flex;*/
+/*  justify-content: space-around;*/
+/*  margin: 0 30% 0 30%;*/
+/*}*/
+
+/*p {*/
+/*  margin: 0px;*/
+/*}*/
+
+/*h2 {*/
+/*  text-align: center;*/
+/*}*/
 
 .amount {
   background-color: orange;
@@ -38,31 +42,31 @@ h2 {
 }
 
 .changeBorderOnTheLeastExpensive {
-  outline: 3px solid red;
+  border: 3px solid red;
 }
 
 .changeBorderOnTheMostExpensive {
-  outline: 3px solid green;
+  border: 3px solid green;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-  border: 3px solid blue;
-}
+/*tr:nth-child(even) {*/
+/*  background-color: #dddddd;*/
+/*  border: 3px solid blue;*/
+/*}*/
 
-img {
-  width: 100%;
-  display: block;
-}
+/*img {*/
+/*  width: 100%;*/
+/*  display: block;*/
+/*}*/
 
-.icons, .unavailable {
-  padding: 15px;
-}
+/*.icons, .unavailable {*/
+/*  padding: 15px;*/
+/*}*/
 
-td {
-  text-align: center;
-  font-size: 17px;
-}
+/*td {*/
+/*  text-align: center;*/
+/*  font-size: 17px;*/
+/*}*/
 
 .modal {
   display: none;
@@ -151,6 +155,7 @@ header{
   top:0;
   left: 0;
   width: 100%;
+  margin-top: 120px;
 }
 
 header>div{
@@ -168,6 +173,55 @@ header>div{
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+.card-top {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: .25rem;
+}
+
+.item img {
+  width: 64px;
+}
+
+.item {
+  margin: 0px 15px;
+  text-align: center;
+}
+
+.item a:hover {
+  color: blue;
+}
+
+.card {
+  padding: 20px;
+  margin: 50px;
+  width: 300px;
+  margin-left: 70px;
+}
+
+.card img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 15px;
+  transition: 0.3s ease-in-out;
+}
+
+.card img:hover {
+  transition: 0.3s ease-in-out;
+  transform: scale(1.1);
+}
+
+h5 {
+  text-align: center;
+}
+
 
 
 

@@ -4,7 +4,7 @@ import {Dish} from "../../service/dish";
 import {DishService} from "../../service/dish.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
-
+import {CartService} from "../../service/cart.service";
 
 @Component({
   selector: 'app-dishes',
@@ -15,9 +15,26 @@ export class DishesComponent implements OnInit {
   // @ts-ignore
   public dishes: Dish[];
   amount: number = 0;
-  display = false;
+  displayModal = false;
   sentId: string = '';
-  constructor(private dishService: DishService) {
+  page: number = 0;
+  public filterCategory : any
+  searchKey:string ="";
+
+  constructor(private dishService: DishService, private cartService: CartService) {
+  }
+
+  addtocart(item: any){
+    this.cartService.addtoCart(item);
+  }
+
+  filter(category:string){
+    this.filterCategory = this.dishes
+      .filter((a:any)=>{
+        if(a.category == category || category==''){
+          return a;
+        }
+      })
   }
 
   increaseAmountOfDishes(id: string) {
@@ -33,6 +50,7 @@ export class DishesComponent implements OnInit {
         this.amount ++;
         // @ts-ignore
         selectorBottom.innerText = this.amount.toString();
+        this.addtocart(dish);
       }
     }
 
@@ -70,19 +88,39 @@ export class DishesComponent implements OnInit {
     return Math.max(...this.arr);
   }
 
-  ngOnInit(): void {
-    this.getDishes();
+  nextPage() {
+    this.page++;
+    this.getDishesWithPages();
   }
 
-  public getDishes(): void {
-    this.dishService.getDishes().subscribe(
-      (response: Dish[]) => {
-        this.dishes = response;
-        console.log(this.dishes);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
+  previousPage() {
+    this.page--;
+    this.getDishesWithPages();
+  }
+
+  ngOnInit(): void {
+    this.getDishesWithPages();
+    this.cartService.search.subscribe((val:any)=>{
+      this.searchKey = val;
+    })
+  }
+
+
+  public getDishesWithPages() {
+    this.dishService.getDishesWithPages(this.page).subscribe(
+        (response: Dish[]) => {
+          this.dishes = response;
+          this.filterCategory = response;
+          this.dishes.forEach((a:any) => {
+            if(a.category ==="women's clothing" || a.category ==="men's clothing"){
+              a.category ="fashion"
+            }
+            Object.assign(a,{quantity:1,total:a.price});
+          });
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
     );
   }
 
@@ -90,7 +128,7 @@ export class DishesComponent implements OnInit {
     this.dishService.deleteDish(dishId).subscribe(
       (response: void) => {
         console.log(response);
-        this.getDishes();
+        this.getDishesWithPages();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -104,9 +142,7 @@ export class DishesComponent implements OnInit {
     this.dishService.addDish(addForm.value).subscribe(
       (response: Dish) => {
         console.log(response);
-        this.getDishes();
-        // this.allIngredients.push(this.newIngredient);
-        // this.newIngredient = '';
+        this.getDishesWithPages();
         addForm.reset();
         none;
       },
@@ -132,6 +168,6 @@ export class DishesComponent implements OnInit {
 
   openDishInfo(id: string) {
     this.sentId = id;
-    this.display = !this.display;
+    this.displayModal = !this.displayModal;
   }
 }
