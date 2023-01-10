@@ -1,29 +1,5 @@
-header{
-  display: flex;
-  background-color:  rgb(60, 150, 200);
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  justify-content:space-around;
-  position: absolute;
-  top:0;
-  left: 0;
-  width: 100%;
+.form-control {
+  border-radius: 3px;
+  width: 600px;
+  margin-left: 20px;
 }
-
-.btn {
-  font-size: 15px;
-  border-radius: 20px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-#cart-btn {
-  float: right;
-}
-
-.buttons {
-  display: flex;
-  flex-direction: column-reverse;
-}
-
