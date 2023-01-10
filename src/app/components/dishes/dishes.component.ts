@@ -4,8 +4,7 @@ import {Dish} from "../../service/dish";
 import {DishService} from "../../service/dish.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
-import {SharedService} from "../../shared/shared.service";
-
+import {CartService} from "../../service/cart.service";
 
 @Component({
   selector: 'app-dishes',
@@ -16,13 +15,27 @@ export class DishesComponent implements OnInit {
   // @ts-ignore
   public dishes: Dish[];
   amount: number = 0;
-  display = false;
+  displayModal = false;
   sentId: string = '';
   page: number = 0;
+  public filterCategory : any
+  searchKey:string ="";
 
-  constructor(private dishService: DishService, private sharedService: SharedService) {
+  constructor(private dishService: DishService, private cartService: CartService) {
   }
-  message:string = "AA";
+
+  addtocart(item: any){
+    this.cartService.addtoCart(item);
+  }
+
+  filter(category:string){
+    this.filterCategory = this.dishes
+      .filter((a:any)=>{
+        if(a.category == category || category==''){
+          return a;
+        }
+      })
+  }
 
   increaseAmountOfDishes(id: string) {
     var selector = document.getElementById(id.toString())
@@ -37,6 +50,7 @@ export class DishesComponent implements OnInit {
         this.amount ++;
         // @ts-ignore
         selectorBottom.innerText = this.amount.toString();
+        this.addtocart(dish);
       }
     }
 
@@ -86,7 +100,9 @@ export class DishesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDishesWithPages();
-    this.sharedService.setMessage(this.message);
+    this.cartService.search.subscribe((val:any)=>{
+      this.searchKey = val;
+    })
   }
 
 
@@ -94,8 +110,13 @@ export class DishesComponent implements OnInit {
     this.dishService.getDishesWithPages(this.page).subscribe(
         (response: Dish[]) => {
           this.dishes = response;
-
-          console.log(this.dishes);
+          this.filterCategory = response;
+          this.dishes.forEach((a:any) => {
+            if(a.category ==="women's clothing" || a.category ==="men's clothing"){
+              a.category ="fashion"
+            }
+            Object.assign(a,{quantity:1,total:a.price});
+          });
         },
         (error: HttpErrorResponse) => {
           alert(error.message);
@@ -147,6 +168,6 @@ export class DishesComponent implements OnInit {
 
   openDishInfo(id: string) {
     this.sentId = id;
-    this.display = !this.display;
+    this.displayModal = !this.displayModal;
   }
 }
