@@ -11,11 +11,16 @@ import {HeaderComponent} from "./components/header/header.component";
 import {RouterModule, Routes} from "@angular/router";
 import { CartComponent } from './components/cart/cart.component';
 import { FilterPipe } from './shared/filter.pipe';
+import { HomeComponent } from './components/home/home.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 
 const appRoute: Routes = [
   {path: 'dishes', component:DishesComponent},
-  {path: 'cart', component:CartComponent}
+  {path: 'cart', component:CartComponent},
+  {path: 'home', component:HomeComponent},
+  {path: 'dishes/:id', component:ReviewsComponent},
+  {path: 'signup', component: SignUpComponent }
 ]
 
 @NgModule({
@@ -27,6 +32,8 @@ const appRoute: Routes = [
         HeaderComponent,
         CartComponent,
         FilterPipe,
+        HomeComponent,
+        SignUpComponent,
         // SharedComponent
     ],
   imports: [
