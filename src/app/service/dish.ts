@@ -12,4 +12,5 @@ export class Dish {
   price: any;
   description: string = '';
   amount: number = 0;
+
 }

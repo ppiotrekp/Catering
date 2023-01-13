@@ -9,24 +9,6 @@ body {
   /*margin-left: 70px;*/
 }
 
-/*.tbl {*/
-/*  width: 50%;*/
-/*}*/
-
-/*.icons {*/
-/*  display: flex;*/
-/*  justify-content: space-around;*/
-/*  margin: 0 30% 0 30%;*/
-/*}*/
-
-/*p {*/
-/*  margin: 0px;*/
-/*}*/
-
-/*h2 {*/
-/*  text-align: center;*/
-/*}*/
-
 .amount {
   background-color: orange;
   width: 50%;
@@ -48,25 +30,6 @@ body {
 .changeBorderOnTheMostExpensive {
   border: 3px solid green;
 }
-
-/*tr:nth-child(even) {*/
-/*  background-color: #dddddd;*/
-/*  border: 3px solid blue;*/
-/*}*/
-
-/*img {*/
-/*  width: 100%;*/
-/*  display: block;*/
-/*}*/
-
-/*.icons, .unavailable {*/
-/*  padding: 15px;*/
-/*}*/
-
-/*td {*/
-/*  text-align: center;*/
-/*  font-size: 17px;*/
-/*}*/
 
 .modal {
   display: none;
@@ -146,24 +109,7 @@ body {
   }
 }
 
-header{
-  display: flex;
-  background-color:  rgb(60, 150, 200);
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  justify-content:space-around;
-  position: absolute;
-  top:0;
-  left: 0;
-  width: 100%;
-  margin-top: 120px;
-}
 
-header>div{
-  display: flex;
-  align-items: center;
-  color:whitesmoke;
-  margin: 5px;
-}
 
 .btn {
   font-size: 15px;
@@ -222,6 +168,21 @@ h5 {
   text-align: center;
 }
 
+#add-btn {
+  margin-left: 47%;
+}
+
+.pages-btn {
+  width: 100%;
+}
+
+#prev-btn {
+  margin-left: 40%;
+}
+
+#next-btn {
+  margin-left: 10%;
+}
 
 
 

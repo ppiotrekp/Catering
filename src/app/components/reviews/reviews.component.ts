@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import {DishService} from "../../service/dish.service";
 import {Dish} from "../../service/dish";
 import {HttpErrorResponse} from "@angular/common/http";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-reviews',
@@ -12,16 +13,18 @@ export class ReviewsComponent implements OnInit {
   // @ts-ignore
   dish: Dish;
 
-  // @ts-ignore
-  @Input() data: string
-  constructor(private dishService: DishService) { }
+  constructor(private dishService: DishService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getDish(this.data);
+    // @ts-ignore
+    this.getDish(this.route.snapshot.params.id);
+    // console.log(this.route.snapshot.params.id)
   }
 
-  public getDish(dishId: string): void {
-    this.dishService.getDish(dishId).subscribe(
+  public getDish(id: string): void {
+    this.dishService.getDish(id).subscribe(
       (response: Dish) => {
         console.log(response);
         this.dish = response;
@@ -31,13 +34,4 @@ export class ReviewsComponent implements OnInit {
       }
     );
   }
-
-
-  closeModal() {
-    const modalBody = document.querySelector("#my-modal")
-    // @ts-ignore
-    modalBody.style.display = 'none';
-    console.log(this.dish);
-  }
-
 }

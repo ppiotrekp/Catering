@@ -5,6 +5,7 @@ import {DishService} from "../../service/dish.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
 import {CartService} from "../../service/cart.service";
+import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-dishes',
@@ -15,13 +16,15 @@ export class DishesComponent implements OnInit {
   // @ts-ignore
   public dishes: Dish[];
   amount: number = 0;
-  displayModal = false;
   sentId: string = '';
   page: number = 0;
   public filterCategory : any
   searchKey:string ="";
 
-  constructor(private dishService: DishService, private cartService: CartService) {
+  constructor(private dishService: DishService,
+              private cartService: CartService,
+              private router: Router,
+              private route: ActivatedRoute) {
   }
 
   addtocart(item: any){
@@ -166,8 +169,8 @@ export class DishesComponent implements OnInit {
     modalBody.style.display = 'none';
   }
 
-  openDishInfo(id: string) {
-    this.sentId = id;
-    this.displayModal = !this.displayModal;
-  }
+  // openDishInfo(id: string) {
+  //   // this.router.navigate(['/dishes/"63bdd74a9fd83261603710a8"', id])
+  //   this.sentId = id;
+  // }
 }
