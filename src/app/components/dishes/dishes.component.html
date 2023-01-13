@@ -5,23 +5,22 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <title>Document</title>
 </head>
 <body>
-<header>
-  <div class="navbar">
+<!--<header>-->
     <!-- <div class="arrow-down"></div> -->
     <div class="modal-open">
       <button class="btn" id="add-btn" (click)="openModal()">
         <i id="icon" class="fa pot-food">New Dish</i>
       </button>
+
       <!--      <button class="btn" id="filter-btn" (click)="onPress()">-->
       <!--        Filter-->
       <!--      </button>-->
     </div>
-  </div>
-</header>
+<!--</header>-->
+
 
 <div class="main-container">
   <div class="container">
@@ -74,7 +73,7 @@
       <ng-container *ngFor="let dish of filterCategory | filter:searchKey:'name'">
         <div class="dish-row">
           <div class="card col-md-3" [ngClass]="{changeBackgroundOnLowAmount: dish.limit < 4 && dish.limit > 0, changeBorderOnTheLeastExpensive: dish.price === minValue(), changeBorderOnTheMostExpensive: dish.price === maxValue()}">
-            <img class="dish-img" (click)="openDishInfo(dish.id)" src="{{dish.imageUrl}}">
+              <img class="dish-img" routerLink= "/dishes/{{dish.id}}" src="{{dish.imageUrl}}" >
             <h5
               style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{dish.name}}</h5>
             <p
@@ -95,9 +94,6 @@
                 <i class="fa fa-trash"></i>
               </button>
             </div>
-          </div>
-          <div id="search-comp" *ngIf="displayModal">
-            <app-reviews [data]="(sentId)"></app-reviews>
           </div>
         </div>
       </ng-container>
