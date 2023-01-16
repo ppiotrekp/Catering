@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Meal} from "../../service/meal";
+import {Meal} from "../../../dish/meal";
 
 @Component({
   selector: 'app-search',
