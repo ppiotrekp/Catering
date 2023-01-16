@@ -13,6 +13,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { FilterPipe } from './shared/filter.pipe';
 import { HomeComponent } from './components/home/home.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 
 const appRoute: Routes = [
@@ -20,7 +21,8 @@ const appRoute: Routes = [
   {path: 'cart', component:CartComponent},
   {path: 'home', component:HomeComponent},
   {path: 'dishes/:id', component:ReviewsComponent},
-  {path: 'signup', component: SignUpComponent }
+  {path: 'signup', component: SignUpComponent },
+  {path: 'signin', component: SignInComponent }
 ]
 
 @NgModule({
@@ -34,6 +36,7 @@ const appRoute: Routes = [
         FilterPipe,
         HomeComponent,
         SignUpComponent,
+        SignInComponent,
         // SharedComponent
     ],
   imports: [
