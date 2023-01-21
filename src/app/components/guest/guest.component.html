@@ -1,0 +1,53 @@
+<header>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="navbar-brand align-item-center d-flex">
+      <i style="font-size: 40px;" class="fas fa-shipping-fast">&nbsp;
+      </i>
+      <strong style="font-size: 30px;">Flipkart</strong>
+    </div>
+    <div class="nav-item ">
+      <a class="nav-link" href="home">Home</a>
+      <a class="nav-link" href="login">Sign in</a>
+      <a class="nav-link" href="signup">Sign up</a>
+    </div>
+
+  </div>
+</header>
+<body>
+<div class="main-container">
+  <div class="container">
+    <div class="border">
+    </div>
+    <div class="container">
+      <ng-container *ngFor="let dish of filterCategory | filter:searchKey:'name'">
+        <div class="dish-row">
+          <div class="card col-md-3"
+               [ngClass]="{changeBackgroundOnLowAmount: dish.limit < 4 && dish.limit > 0, changeBorderOnTheLeastExpensive: dish.price === minValue(), changeBorderOnTheMostExpensive: dish.price === maxValue()}">
+            <img class="dish-img" src="{{dish.imageUrl}}">
+            <h5
+              style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{dish.name}}</h5>
+            <p
+              style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{dish.description}}</p>
+            <p><strong>Cuisine:</strong> {{dish.cuisine.toString() | uppercase}}</p>
+            <p><strong>Meal:</strong> {{dish.meal.toString() | uppercase}}</p>
+            <p><strong>Ingredients:</strong> {{dish.ingredients}}</p>
+            <p><strong>Limit:</strong> {{dish.limit}}</p>
+            <p><strong>Price:</strong> {{dish.price}} $</p>
+            <td class="unavailable" [ngStyle]="{display: dish.limit === 0 ? 'flex' : 'none'}">UNAVAILABLE</td>
+
+          </div>
+        </div>
+      </ng-container>
+
+    </div>
+
+    <div class="pages-btn">
+      <button id="prev-btn" (click)="previousPage()">Previous</button>
+      <button id="next-btn" (click)="nextPage()">Next</button>
+    </div>
+  </div>
+</div>
+</body>
+
+
+
