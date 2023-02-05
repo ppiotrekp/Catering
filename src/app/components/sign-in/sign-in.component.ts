@@ -26,8 +26,8 @@ export class SignInComponent implements OnInit {
   login() {
     let payload = {email: this.email, password: this.password};
     this.loginService.login(payload).subscribe(data => {
+        this.storageService.saveJwt(data);
         this.router.navigate(['/dishes']);
-        this.storageService.saveUser(data);
         this.invalidLogin = false;
         this.isLoggedIn = true;
         console.log(data)
