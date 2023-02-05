@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {CartService} from "../../service/cart.service";
+import {OrderService} from "../../service/order.service";
+import {Order} from "../../order/order";
+import {Dish} from "../../../dish/dish";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-cart',
@@ -8,8 +12,16 @@ import {CartService} from "../../service/cart.service";
 })
 export class CartComponent implements OnInit {
   public dishes : any = [];
+  public order!: Order;
   public grandTotal !: number;
-  constructor(private cartService : CartService) { }
+  // @ts-ignore
+  // public order: a;
+  userId='';
+  id='';
+  name='';
+  price='';
+  amount='';
+  constructor(private cartService : CartService, private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.cartService.getProducts()
@@ -25,4 +37,13 @@ export class CartComponent implements OnInit {
     this.cartService.removeAllCart();
   }
 
+  buyDishes() {
+    this.orderService.fillAnOrder(this.order).subscribe(
+      (response: Order) => {
+        console.log(response);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      });
+  }
 }
