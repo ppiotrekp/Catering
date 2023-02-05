@@ -14,15 +14,29 @@ import { FilterPipe } from './shared/filter.pipe';
 import { HomeComponent } from './components/home/home.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
+import {httpInterceptorProviders} from "./http.request.interceptor";
+import { GuestComponent } from './components/guest/guest.component';
+import { ManagerComponent } from './components/manager/manager.component';
+import { UpdateDishComponent } from './components/update-dish/update-dish.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import {HistoryComponent} from "./components/history/history.component";
+import {AuthGuard} from "./guard/auth.guard";
 
 
 const appRoute: Routes = [
+  {path : '',redirectTo : 'home',pathMatch : 'full'},
   {path: 'dishes', component:DishesComponent},
-  {path: 'cart', component:CartComponent},
+  {path: 'cart', component:CartComponent, canActivate: [AuthGuard]},
   {path: 'home', component:HomeComponent},
-  {path: 'dishes/:id', component:ReviewsComponent},
+  {path: 'dishes/:id', component:ReviewsComponent, canActivate: [AuthGuard]},
   {path: 'signup', component: SignUpComponent },
-  {path: 'signin', component: SignInComponent }
+  {path: 'login', component: SignInComponent },
+  {path: 'guest/dishes', component:GuestComponent},
+  {path: 'manager/dishes', component:ManagerComponent, canActivate: [AuthGuard] },
+  {path: 'users', component:AdminComponent, canActivate: [AuthGuard]},
+  {path: "history", component:HistoryComponent, canActivate: [AuthGuard]},
+
 ]
 
 @NgModule({
@@ -37,7 +51,12 @@ const appRoute: Routes = [
         HomeComponent,
         SignUpComponent,
         SignInComponent,
-        // SharedComponent
+        GuestComponent,
+        ManagerComponent,
+        UpdateDishComponent,
+        AdminComponent,
+        CheckoutComponent,
+        HistoryComponent
     ],
   imports: [
     BrowserModule,
@@ -45,6 +64,7 @@ const appRoute: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoute),
   ],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
