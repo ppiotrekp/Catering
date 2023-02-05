@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {DishService} from "../../service/dish.service";
-import {Dish} from "../../service/dish";
+import {Dish} from "../../../dish/dish";
 import {HttpErrorResponse} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
 

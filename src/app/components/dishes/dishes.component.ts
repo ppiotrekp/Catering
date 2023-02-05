@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import dishes from './dishes.json'
-import {Dish} from "../../service/dish";
+import {Dish} from "../../../dish/dish";
 import {DishService} from "../../service/dish.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
