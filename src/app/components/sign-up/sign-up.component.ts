@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from "../../user/user";
 import {RegisterService} from "../../service/register.service";
+import {Router} from "@angular/router";
+import {StorageService} from "../../service/storage.service";
 
 @Component({
   selector: 'app-sign-up',
@@ -17,7 +19,7 @@ export class SignUpComponent implements OnInit {
   passwordsDifferent:boolean = true;
 
 
-  constructor(private registerService: RegisterService) { }
+  constructor(private registerService: RegisterService, private router: Router, private storageService: StorageService) { }
 
   register(){
     this.comparePasswords();
@@ -25,7 +27,8 @@ export class SignUpComponent implements OnInit {
       this.registerService.registerUser(this.user).subscribe(data=>{
         this.user = new User();
         this.isCreated = true;
-
+        alert("Registered successfully")
+        this.router.navigate(['/login'])
       },error=> {
         this.userError=error.error;
         this.isCreated = false;
